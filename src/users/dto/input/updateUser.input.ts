@@ -12,7 +12,7 @@ export class UpdateUserInput {
   @IsNotEmpty()
   age?: number;
 
-  @Field()
+  @Field({ nullable: true })
   @IsOptional()
   isSubscribed?: boolean;
 }
