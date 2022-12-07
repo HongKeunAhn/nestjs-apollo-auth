@@ -8,7 +8,14 @@ import { CreateUserInput, UpdateUserInput } from './dto/input';
 
 @Injectable()
 export class UsersService {
-  private users: User[] = [];
+  private users: User[] = [
+    {
+      email: 'keuni@example.com',
+      password: 'keunimo',
+      userId: '2024',
+      age: 30,
+    },
+  ];
 
   public createUser(createUserData: CreateUserInput): User {
     const user: User = {
