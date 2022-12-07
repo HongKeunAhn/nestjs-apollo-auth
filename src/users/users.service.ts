@@ -2,11 +2,9 @@ import { DeleteUserInput } from './dto/input/deleteUser.input';
 import { Injectable } from '@nestjs/common';
 import { v4 as uuidv4 } from 'uuid';
 
-import { User } from './models/user';
-import { GetUsersArgs } from './dto/args/getUsers.args';
-import { GetUserArgs } from './dto/args/getUser.args';
-import { UpdateUserInput } from './dto/input/updateUser.input';
-import { CreateUserInput } from './dto/input/createUser.input';
+import { User } from './models';
+import { GetUserArgs, GetUsersArgs } from './dto/args';
+import { CreateUserInput, UpdateUserInput } from './dto/input';
 
 @Injectable()
 export class UsersService {
