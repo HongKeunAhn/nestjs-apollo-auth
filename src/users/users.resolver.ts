@@ -14,26 +14,26 @@ export class UsersResolvers {
 
   @Query(() => User, { name: 'user', nullable: true })
   getUser(@Args() getUserArgs: GetUserArgs): User {
-    return this.usersService.getUser();
+    return this.usersService.getUser(getUserArgs);
   }
 
   @Query(() => [User], { name: 'user', nullable: 'items' })
   getUsers(@Args() getUsersArgs: GetUsersArgs): User[] {
-    return this.usersService.getUsers();
+    return this.usersService.getUsers(getUsersArgs);
   }
 
   @Mutation(() => User)
   createUser(@Args('createUserData') createUserData: CreateUserInput): User {
-    return this.usersService.createUser();
+    return this.usersService.createUser(createUserData);
   }
 
   @Mutation(() => User)
   updateUser(@Args('updateUserData') updateUserData: UpdateUserInput): User {
-    return this.usersService.updateUser();
+    return this.usersService.updateUser(updateUserData);
   }
 
   @Mutation(() => User)
   deleteUser(@Args('deleteUserData') deleteUserData: DeleteUserInput): User {
-    return this.usersService.deleteUser();
+    return this.usersService.deleteUser(deleteUserData);
   }
 }
