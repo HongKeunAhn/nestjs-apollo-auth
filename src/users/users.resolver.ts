@@ -17,7 +17,7 @@ export class UsersResolvers {
     return this.usersService.getUser(getUserArgs);
   }
 
-  @Query(() => [User], { name: 'user', nullable: 'items' })
+  @Query(() => [User], { name: 'users', nullable: 'items' })
   getUsers(@Args() getUsersArgs: GetUsersArgs): User[] {
     return this.usersService.getUsers(getUsersArgs);
   }
