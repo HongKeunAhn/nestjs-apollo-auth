@@ -6,6 +6,7 @@ import { UsersService } from './users.service';
 import { GetUserArgs, GetUsersArgs } from './dto/args';
 import { CreateUserInput, UpdateUserInput, DeleteUserInput } from './dto/input';
 import { GqlAuthGuard } from './../auth/guard';
+import { CurrentUser } from 'src/auth/currentUser.decorator';
 
 @Resolver(() => User)
 export class UsersResolvers {
@@ -13,7 +14,8 @@ export class UsersResolvers {
 
   @Query(() => User, { name: 'user', nullable: true })
   @UseGuards(GqlAuthGuard)
-  getUser(@Args() getUserArgs: GetUserArgs): User {
+  getUser(@CurrentUser() user: User, @Args() getUserArgs: GetUserArgs): User {
+    console.log(user);
     return this.usersService.getUser(getUserArgs);
   }
 
