@@ -8,7 +8,14 @@ import { CreateUserInput, UpdateUserInput } from './dto/input';
 
 @Injectable()
 export class UsersService {
-  private users: User[] = [];
+  private users: User[] = [
+    {
+      email: 'keuni@example.com',
+      password: 'keunimo',
+      userId: '2024',
+      age: 30,
+    },
+  ];
 
   public createUser(createUserData: CreateUserInput): User {
     const user: User = {
@@ -33,6 +40,10 @@ export class UsersService {
 
   public getUser(getUserArgs: GetUserArgs): User {
     return this.users.find((user) => user.userId === getUserArgs.userId);
+  }
+
+  public getUserByEmail(email: string): User | undefined {
+    return this.users.find((user) => user.email === email);
   }
 
   public getUsers(getUsersArgs: GetUsersArgs): User[] {
